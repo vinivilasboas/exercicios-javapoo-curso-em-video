@@ -70,9 +70,9 @@ public class ControleRemoto implements Controlador {
 
     @Override
     public void maisVolume() {
-        if (this.isLigado()){
-            if (this.getVolume() < 100) {
-                this.setVolume(this.getVolume() + 5);
+        if (this.isLigado()){ // só aumenta o volume se estiver ligado
+            if (this.getVolume() < 100) { // volume máximo: 100
+                this.setVolume(this.getVolume() + 5); // volume aumenta de 5 em 5
             }
             System.out.println("VOLUME: " + this.getVolume());
         }
@@ -81,8 +81,8 @@ public class ControleRemoto implements Controlador {
     @Override
     public void menosVolume() {
         if (this.isLigado()) {
-            if (this.getVolume() > 0) {
-                this.setVolume(this.getVolume() - 5);
+            if (this.getVolume() > 0) { // volume mínimo: 00
+                this.setVolume(this.getVolume() - 5); // volume diminui de 5 em 5
             }
             System.out.println("VOLUME: " + this.getVolume());
         }
@@ -90,8 +90,8 @@ public class ControleRemoto implements Controlador {
 
     @Override
     public void ligarMudo() {
-        if (this.isLigado()) {
-            if (this.getVolume() > 0) {
+        if (this.isLigado()) { // para ligar mudo precisa estar ligado
+            if (this.getVolume() > 0) { // para ligar mudo o volume não pode estar zerado
                 this.setVolume(0);
             }
         }
@@ -99,24 +99,24 @@ public class ControleRemoto implements Controlador {
 
     @Override
     public void desligarMudo() {
-        if (this.isLigado()) {
-            if (this.getVolume() == 0){
-                this.setVolume(50);
+        if (this.isLigado()) { // para desligar mudo precisa estar ligado
+            if (this.getVolume() == 0){ // para desligar mudo o volume precisa estar em 0
+                this.setVolume(50); // ao desligar mudo, volume passa para 50
             }
         }
     }
 
     @Override
-    public void play() {
+    public void play() { // para dar play precisa estar ligado
         if (this.isLigado()) {
-            this.setTocando(true);
+            this.setTocando(true); // ao dar play, passa a tocar
         }
     }
 
     @Override
-    public void pause() {
+    public void pause() { // para dar pause precisa estar ligado
         if (this.isLigado()) {
-            this.setTocando(false);
+            this.setTocando(false); // ao dar pause, para de tocar
         }
     }
 

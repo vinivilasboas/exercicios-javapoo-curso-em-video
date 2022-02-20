@@ -9,8 +9,8 @@ public class Caneta {
 
     String modelo;
     String cor;
-    float ponta;
-    int carga;
+    float ponta; // tamanho da ponta
+    int carga; // porcentagem de tinta
     boolean tampada;
 
     void status() {

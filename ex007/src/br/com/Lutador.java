@@ -64,6 +64,7 @@ public class Lutador {
         return peso;
     }
 
+    // peso define categoria
     public void setPeso(float pe) {
         this.peso = pe;
         this.setCategoria();
@@ -73,6 +74,7 @@ public class Lutador {
         return categoria;
     }
 
+    // definição de categoria é privada porque depende da definição do peso
     private void setCategoria() {
         if (this.getPeso() < 52.2){
             this.categoria = "Inválido";
@@ -111,6 +113,7 @@ public class Lutador {
         this.empates = emp;
     }
 
+    // apresentação do lutador
     public void apresentar() {
         System.out.println("");
         System.out.println("LUTADOR: " + this.getNome());
@@ -125,6 +128,7 @@ public class Lutador {
         System.out.println("");
     }
 
+    // mostra os aspectos técnicos do lutador
     public void status() {
         System.out.println("");
         System.out.println(this.getNome());
