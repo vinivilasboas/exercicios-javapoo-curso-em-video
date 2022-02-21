@@ -7,10 +7,10 @@ package br.com;
 
 public interface Publicacao {
 
-    public abstract void abrir(int pag);
-    public abstract void fechar();
-    public abstract void folhear(int f);
-    public abstract void avancarPagina();
-    public abstract void voltarPagina();
+    public void abrir(int pag);
+    public void fechar();
+    public void folhear(int f);
+    public void avancarPagina();
+    public void voltarPagina();
 
 }

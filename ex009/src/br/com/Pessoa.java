@@ -44,7 +44,7 @@ public class Pessoa {
     }
 
     public void fazerAniversario() {
-        this.setIdade(this.getIdade() + 1);
+        this.idade++;
     }
 
 }

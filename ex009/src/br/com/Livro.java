@@ -24,6 +24,19 @@ public class Livro implements Publicacao {
         this.leitor = leitor;
     }
 
+    public String toString() {
+        return "Livro{" +
+                "\ntítulo = " + titulo +
+                "\nautor = " + autor +
+                "\ntotal de páginas = " + totalPaginas +
+                "\npágina atual = " + paginaAtual +
+                "\naberto = " + aberto +
+                "\nleitor = " + leitor.getNome() +
+                "\nidade = " + leitor.getIdade() +
+                "\ngênero = " + leitor.getGenero() +
+                '}';
+    }
+
     public String getTitulo() {
         return titulo;
     }
@@ -74,8 +87,13 @@ public class Livro implements Publicacao {
 
     @Override
     public void abrir(int pag) {
-        this.setAberto(true);
-        this.setPaginaAtual(pag);
+        if (pag > this.getTotalPaginas()) { // página aberta não pode ser maior que total de páginas
+            this.setPaginaAtual(0);
+            this.setAberto(false);
+        } else {
+            this.setAberto(true);
+            this.setPaginaAtual(pag);
+        }
     }
 
     @Override
@@ -86,8 +104,14 @@ public class Livro implements Publicacao {
 
     @Override
     // página atual passa para a página folheada
-    public void folhear(int f) {
-        this.setPaginaAtual(f);
+    public void folhear(int f) { // página folheada não pode ser maior que total de páginas
+        if (f > this.getTotalPaginas()) {
+            this.setPaginaAtual(0);
+            this.setAberto(false);
+        } else {
+            this.setAberto(true);
+            this.setPaginaAtual(f);
+        }
     }
 
     @Override
